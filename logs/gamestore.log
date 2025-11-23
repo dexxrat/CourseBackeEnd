@@ -1,0 +1,4428 @@
+2025-11-16T10:08:25.072+03:00  INFO 27220 --- [main] c.e.gamestore.GameStoreApplication       : Starting GameStoreApplication using Java 24.0.2 with PID 27220 (C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store\target\classes started by dexxr in C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store)
+2025-11-16T10:08:25.074+03:00  INFO 27220 --- [main] c.e.gamestore.GameStoreApplication       : The following 1 profile is active: "default"
+2025-11-16T10:08:25.879+03:00  INFO 27220 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-16T10:08:25.979+03:00  INFO 27220 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 6 JPA repository interfaces.
+2025-11-16T10:08:26.721+03:00  INFO 27220 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-16T10:08:26.741+03:00  INFO 27220 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-16T10:08:26.741+03:00  INFO 27220 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-11-16T10:08:26.798+03:00  INFO 27220 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-16T10:08:26.798+03:00  INFO 27220 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1670 ms
+2025-11-16T10:08:26.946+03:00  INFO 27220 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-16T10:08:27.018+03:00  INFO 27220 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-11-16T10:08:27.062+03:00  INFO 27220 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-16T10:08:27.406+03:00  INFO 27220 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-16T10:08:27.444+03:00  INFO 27220 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-16T10:08:27.662+03:00  INFO 27220 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@bd4ee01
+2025-11-16T10:08:27.663+03:00  INFO 27220 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-16T10:08:27.735+03:00  INFO 27220 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-16T10:08:28.681+03:00  INFO 27220 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-16T10:08:28.741+03:00 ERROR 27220 --- [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [genres] in table [game_genres]
+2025-11-16T10:08:28.742+03:00 ERROR 27220 --- [main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'authTokenFilter' defined in file [C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store\target\classes\com\example\gamestore\security\AuthTokenFilter.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'userDetailsServiceImpl' defined in file [C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store\target\classes\com\example\gamestore\service\UserDetailsServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepository' defined in com.example.gamestore.repository.UserRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+2025-11-16T10:08:28.766+03:00  INFO 27220 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-11-16T10:08:28.768+03:00  WARN 27220 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1:housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1802)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1021)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1081)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+ java.base/java.lang.Thread.run(Thread.java:1447)
+2025-11-16T10:08:28.768+03:00  WARN 27220 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1:connection-adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1802)
+ java.base/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1020)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1081)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+ java.base/java.lang.Thread.run(Thread.java:1447)
+2025-11-16T10:08:28.771+03:00  WARN 27220 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2025-11-16T10:08:28.772+03:00  INFO 27220 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-16T10:08:28.773+03:00  INFO 27220 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-16T10:08:28.780+03:00  INFO 27220 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-16T10:08:28.798+03:00 ERROR 27220 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:170) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at com.example.gamestore.GameStoreApplication.main(GameStoreApplication.java:9) ~[classes/:na]
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:147) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:517) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:219) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:193) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167) ~[spring-boot-3.5.6.jar:3.5.6]
+	... 8 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authTokenFilter' defined in file [C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store\target\classes\com\example\gamestore\security\AuthTokenFilter.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'userDetailsServiceImpl' defined in file [C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store\target\classes\com\example\gamestore\service\UserDetailsServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepository' defined in com.example.gamestore.repository.UserRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:230) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:184) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:179) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:164) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:96) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:271) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:245) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4464) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:81) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:148) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:773) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:81) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:148) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:412) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:870) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:438) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128) ~[spring-boot-3.5.6.jar:3.5.6]
+	... 13 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userDetailsServiceImpl' defined in file [C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store\target\classes\com\example\gamestore\service\UserDetailsServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepository' defined in com.example.gamestore.repository.UserRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1760) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1643) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 54 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userRepository' defined in com.example.gamestore.repository.UserRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1725) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1474) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1698) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1643) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 68 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaSharedEM_entityManagerFactory': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:691) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:513) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 81 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [genres] in table [game_genres]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 93 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [genres] in table [game_genres]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:431) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 100 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [genres] in table [game_genres]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:149) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:46) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:99) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:77) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:289) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.11.jar:6.2.11]
+	... 104 common frames omitted
+
+2025-11-16T10:10:36.208+03:00  INFO 18456 --- [main] c.e.gamestore.GameStoreApplication       : Starting GameStoreApplication using Java 24.0.2 with PID 18456 (C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store\target\classes started by dexxr in C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store)
+2025-11-16T10:10:36.211+03:00  INFO 18456 --- [main] c.e.gamestore.GameStoreApplication       : The following 1 profile is active: "default"
+2025-11-16T10:10:37.120+03:00  INFO 18456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-16T10:10:37.222+03:00  INFO 18456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 6 JPA repository interfaces.
+2025-11-16T10:10:38.115+03:00  INFO 18456 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-16T10:10:38.141+03:00  INFO 18456 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-16T10:10:38.141+03:00  INFO 18456 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-11-16T10:10:38.219+03:00  INFO 18456 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-16T10:10:38.220+03:00  INFO 18456 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1958 ms
+2025-11-16T10:10:38.411+03:00  INFO 18456 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-16T10:10:38.491+03:00  INFO 18456 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-11-16T10:10:38.542+03:00  INFO 18456 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-16T10:10:38.946+03:00  INFO 18456 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-16T10:10:38.990+03:00  INFO 18456 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-16T10:10:39.337+03:00  INFO 18456 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27afbf14
+2025-11-16T10:10:39.339+03:00  INFO 18456 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-16T10:10:39.447+03:00  INFO 18456 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-16T10:10:40.484+03:00  INFO 18456 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-16T10:10:40.561+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists cart_items 
+       alter column price set data type numeric(38,2)
+2025-11-16T10:10:40.568+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists carts 
+       alter column total_price set data type numeric(38,2)
+2025-11-16T10:10:40.571+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists game_genres 
+       add column genres varchar(255)
+2025-11-16T10:10:40.574+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists games 
+       alter column description set data type varchar(1000)
+2025-11-16T10:10:40.594+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists games 
+       alter column developer set data type varchar(255)
+2025-11-16T10:10:40.596+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists games 
+       alter column discount_price set data type numeric(38,2)
+2025-11-16T10:10:40.596+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists games 
+       alter column image_url set data type varchar(255)
+2025-11-16T10:10:40.614+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists games 
+       alter column platform set data type varchar(255)
+2025-11-16T10:10:40.614+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists games 
+       alter column price set data type numeric(38,2)
+2025-11-16T10:10:40.615+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists games 
+       alter column publisher set data type varchar(255)
+2025-11-16T10:10:40.616+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists order_items 
+       alter column price_at_purchase set data type numeric(38,2)
+2025-11-16T10:10:40.617+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       alter column status set data type varchar(255)
+2025-11-16T10:10:40.620+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       alter column total_amount set data type numeric(38,2)
+2025-11-16T10:10:40.620+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists roles 
+       alter column name set data type varchar(255)
+2025-11-16T10:10:40.623+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists users 
+       alter column email set data type varchar(255)
+2025-11-16T10:10:40.626+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    alter table if exists users 
+       alter column username set data type varchar(255)
+2025-11-16T10:10:41.030+03:00  INFO 18456 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-16T10:10:42.239+03:00  INFO 18456 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-16T10:10:42.247+03:00  INFO 18456 --- [main] c.e.gamestore.GameStoreApplication       : Started GameStoreApplication in 6.616 seconds (process running for 7.08)
+2025-11-16T10:10:42.415+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2025-11-16T10:10:42.449+03:00 DEBUG 18456 --- [main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2025-11-16T10:13:21.419+03:00  INFO 18456 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-16T10:14:12.620+03:00 DEBUG 18456 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T10:14:12.620+03:00 DEBUG 18456 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T10:14:12.682+03:00 DEBUG 18456 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.682+03:00 DEBUG 18456 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.690+03:00 DEBUG 18456 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.690+03:00 DEBUG 18456 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.691+03:00 DEBUG 18456 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.691+03:00 DEBUG 18456 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.692+03:00 DEBUG 18456 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.692+03:00 DEBUG 18456 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.693+03:00 DEBUG 18456 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.693+03:00 DEBUG 18456 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.694+03:00 DEBUG 18456 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.694+03:00 DEBUG 18456 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.695+03:00 DEBUG 18456 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.695+03:00 DEBUG 18456 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.696+03:00 DEBUG 18456 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.696+03:00 DEBUG 18456 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.696+03:00 DEBUG 18456 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.698+03:00 DEBUG 18456 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.698+03:00 DEBUG 18456 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:14:12.698+03:00 DEBUG 18456 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.636+03:00 DEBUG 18456 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T10:16:41.636+03:00 DEBUG 18456 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T10:16:41.649+03:00 DEBUG 18456 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.649+03:00 DEBUG 18456 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.650+03:00 DEBUG 18456 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.651+03:00 DEBUG 18456 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.651+03:00 DEBUG 18456 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.651+03:00 DEBUG 18456 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.651+03:00 DEBUG 18456 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.652+03:00 DEBUG 18456 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.652+03:00 DEBUG 18456 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.652+03:00 DEBUG 18456 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.652+03:00 DEBUG 18456 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.653+03:00 DEBUG 18456 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.653+03:00 DEBUG 18456 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.653+03:00 DEBUG 18456 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.653+03:00 DEBUG 18456 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.655+03:00 DEBUG 18456 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.655+03:00 DEBUG 18456 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.655+03:00 DEBUG 18456 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.655+03:00 DEBUG 18456 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:16:41.656+03:00 DEBUG 18456 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T10:17:24.239+03:00  INFO 18456 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-16T10:17:24.257+03:00  INFO 18456 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-16T10:17:24.286+03:00  INFO 18456 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-16T10:17:24.309+03:00  INFO 18456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-16T10:17:24.313+03:00  INFO 18456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-16T11:56:57.015+03:00  INFO 17380 --- [main] c.e.gamestore.GameStoreApplication       : Starting GameStoreApplication using Java 24.0.2 with PID 17380 (C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store\target\classes started by dexxr in C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store)
+2025-11-16T11:56:57.017+03:00  INFO 17380 --- [main] c.e.gamestore.GameStoreApplication       : The following 1 profile is active: "default"
+2025-11-16T11:56:58.025+03:00  INFO 17380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-16T11:56:58.151+03:00  INFO 17380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111 ms. Found 6 JPA repository interfaces.
+2025-11-16T11:56:59.088+03:00  INFO 17380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-16T11:56:59.108+03:00  INFO 17380 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-16T11:56:59.109+03:00  INFO 17380 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-11-16T11:56:59.178+03:00  INFO 17380 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-16T11:56:59.178+03:00  INFO 17380 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2109 ms
+2025-11-16T11:56:59.381+03:00  INFO 17380 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-16T11:56:59.478+03:00  INFO 17380 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-11-16T11:56:59.535+03:00  INFO 17380 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-16T11:56:59.944+03:00  INFO 17380 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-16T11:56:59.986+03:00  INFO 17380 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-16T11:57:00.253+03:00  INFO 17380 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7d284f15
+2025-11-16T11:57:00.255+03:00  INFO 17380 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-16T11:57:00.368+03:00  INFO 17380 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-16T11:57:01.418+03:00  INFO 17380 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-16T11:57:02.061+03:00  INFO 17380 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-16T11:57:03.216+03:00  INFO 17380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-16T11:57:03.223+03:00  INFO 17380 --- [main] c.e.gamestore.GameStoreApplication       : Started GameStoreApplication in 6.856 seconds (process running for 7.55)
+2025-11-16T11:57:03.372+03:00 DEBUG 17380 --- [main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2025-11-16T11:57:03.404+03:00 DEBUG 17380 --- [main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2025-11-16T11:57:13.688+03:00  INFO 17380 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-16T11:57:13.696+03:00  INFO 17380 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-16T11:57:13.701+03:00  INFO 17380 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-16T11:57:13.703+03:00  INFO 17380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-16T11:57:13.704+03:00  INFO 17380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-16T13:06:11.304+03:00  INFO 22096 --- [main] c.e.gamestore.GameStoreApplication       : Starting GameStoreApplication using Java 24.0.2 with PID 22096 (C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store\target\classes started by dexxr in C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store)
+2025-11-16T13:06:11.307+03:00  INFO 22096 --- [main] c.e.gamestore.GameStoreApplication       : The following 1 profile is active: "default"
+2025-11-16T13:06:12.357+03:00  INFO 22096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-16T13:06:12.477+03:00  INFO 22096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 106 ms. Found 6 JPA repository interfaces.
+2025-11-16T13:06:13.310+03:00  INFO 22096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-16T13:06:13.328+03:00  INFO 22096 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-16T13:06:13.329+03:00  INFO 22096 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-11-16T13:06:13.398+03:00  INFO 22096 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-16T13:06:13.398+03:00  INFO 22096 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2033 ms
+2025-11-16T13:06:13.600+03:00  INFO 22096 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-16T13:06:13.688+03:00  INFO 22096 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-11-16T13:06:13.743+03:00  INFO 22096 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-16T13:06:14.143+03:00  INFO 22096 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-16T13:06:14.191+03:00  INFO 22096 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-16T13:06:14.475+03:00  INFO 22096 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@467ef400
+2025-11-16T13:06:14.477+03:00  INFO 22096 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-16T13:06:14.590+03:00  INFO 22096 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-16T13:06:15.756+03:00  INFO 22096 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-16T13:06:16.438+03:00  INFO 22096 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-16T13:06:17.829+03:00  INFO 22096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-16T13:06:17.840+03:00  INFO 22096 --- [main] c.e.gamestore.GameStoreApplication       : Started GameStoreApplication in 7.204 seconds (process running for 7.893)
+2025-11-16T13:06:18.036+03:00 DEBUG 22096 --- [main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2025-11-16T13:06:18.082+03:00 DEBUG 22096 --- [main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2025-11-16T13:06:18.116+03:00  INFO 22096 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-16T13:06:18.233+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:18.252+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.259+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.259+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.259+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.259+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.259+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.265+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.265+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.265+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.268+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.998+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:18.998+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.998+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.998+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.998+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:18.998+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.011+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.011+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.011+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.012+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.012+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.437+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:19.443+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.443+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.445+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.445+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.445+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.445+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.445+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.445+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.445+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.449+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.771+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:19.776+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.776+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.776+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.776+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.776+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.776+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.782+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.782+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.782+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.782+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.954+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:19.957+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.957+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.957+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.957+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.957+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.957+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.962+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.962+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.962+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:19.964+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.133+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:20.136+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.136+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.136+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.142+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.142+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.142+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.142+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.142+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.142+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.142+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.301+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:20.313+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.313+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.313+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.313+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.313+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.317+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.317+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.317+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.317+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.317+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.503+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:20.505+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.505+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.505+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.508+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.508+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.508+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.508+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.508+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.508+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.512+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.739+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:20.742+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.743+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.743+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.743+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.743+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.743+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.743+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.746+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.746+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.747+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.906+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:20.916+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.916+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.916+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.918+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.918+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.918+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.918+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.918+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.918+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:20.922+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.083+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:21.085+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.085+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.085+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.085+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.085+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.085+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.085+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.085+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.085+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.085+03:00 DEBUG 22096 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.567+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:21.569+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.570+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.570+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.570+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.570+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.570+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.570+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.574+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.574+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:21.574+03:00 DEBUG 22096 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:22.054+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:22.062+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:22.066+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:22.066+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:22.066+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:22.066+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:22.066+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:22.066+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:22.066+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:22.066+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:22.066+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:29.792+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:29.792+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:29.792+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:29.792+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:29.799+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:29.799+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:29.799+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:29.799+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:29.799+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:29.802+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:29.802+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:30.176+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:30.176+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:30.176+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:30.176+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:30.180+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:30.180+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:30.180+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:30.182+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:30.182+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:30.182+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:30.182+03:00 DEBUG 22096 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.850+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:32.850+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:32.850+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.850+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.850+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.850+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.850+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.850+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.850+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.850+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.850+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.850+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.863+03:00 DEBUG 22096 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.863+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.863+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.863+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.865+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.865+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.865+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.865+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.865+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:32.865+03:00 DEBUG 22096 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.700+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:34.700+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:06:34.710+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.710+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.710+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.710+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.710+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.710+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.710+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.710+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.710+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.712+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.712+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.712+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.712+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.712+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.712+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.714+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.714+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.714+03:00 DEBUG 22096 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.714+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:06:34.714+03:00 DEBUG 22096 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.872+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:07:00.872+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:07:00.875+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.875+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.876+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.876+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.877+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.877+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.877+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.877+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.878+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.878+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.878+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.878+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.879+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.879+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.879+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.879+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.880+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.880+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.880+03:00 DEBUG 22096 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:00.880+03:00 DEBUG 22096 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:01.783+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:07:01.787+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:01.788+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:01.790+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:01.790+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:01.790+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:01.791+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:01.791+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:01.792+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:01.792+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:07:01.793+03:00 DEBUG 22096 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:10:37.973+03:00  INFO 22096 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-16T13:10:37.988+03:00  INFO 22096 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-16T13:10:37.994+03:00  INFO 22096 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-16T13:10:37.996+03:00  INFO 22096 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-16T13:10:37.999+03:00  INFO 22096 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-16T13:32:49.455+03:00  INFO 22960 --- [main] c.e.gamestore.GameStoreApplication       : Starting GameStoreApplication using Java 24.0.2 with PID 22960 (C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store\target\classes started by dexxr in C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store)
+2025-11-16T13:32:49.458+03:00  INFO 22960 --- [main] c.e.gamestore.GameStoreApplication       : The following 1 profile is active: "default"
+2025-11-16T13:32:50.543+03:00  INFO 22960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-16T13:32:50.678+03:00  INFO 22960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 119 ms. Found 6 JPA repository interfaces.
+2025-11-16T13:32:51.484+03:00  INFO 22960 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-16T13:32:51.503+03:00  INFO 22960 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-16T13:32:51.504+03:00  INFO 22960 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-11-16T13:32:51.578+03:00  INFO 22960 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-16T13:32:51.578+03:00  INFO 22960 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2067 ms
+2025-11-16T13:32:51.760+03:00  INFO 22960 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-16T13:32:51.844+03:00  INFO 22960 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-11-16T13:32:51.895+03:00  INFO 22960 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-16T13:32:52.369+03:00  INFO 22960 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-16T13:32:52.413+03:00  INFO 22960 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-16T13:32:52.696+03:00  INFO 22960 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@bd4ee01
+2025-11-16T13:32:52.697+03:00  INFO 22960 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-16T13:32:52.825+03:00  INFO 22960 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-16T13:32:54.114+03:00  INFO 22960 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-16T13:32:54.843+03:00  INFO 22960 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-16T13:32:56.240+03:00  INFO 22960 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-16T13:32:56.250+03:00  INFO 22960 --- [main] c.e.gamestore.GameStoreApplication       : Started GameStoreApplication in 7.517 seconds (process running for 8.103)
+2025-11-16T13:32:56.410+03:00 DEBUG 22960 --- [main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2025-11-16T13:32:56.442+03:00 DEBUG 22960 --- [main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2025-11-16T13:32:59.712+03:00  INFO 22960 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-16T13:32:59.807+03:00 DEBUG 22960 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:32:59.827+03:00 DEBUG 22960 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:32:59.831+03:00 DEBUG 22960 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:32:59.832+03:00 DEBUG 22960 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:32:59.833+03:00 DEBUG 22960 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:32:59.833+03:00 DEBUG 22960 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:32:59.835+03:00 DEBUG 22960 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:32:59.836+03:00 DEBUG 22960 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:32:59.837+03:00 DEBUG 22960 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:32:59.838+03:00 DEBUG 22960 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:32:59.839+03:00 DEBUG 22960 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.351+03:00 DEBUG 22960 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:33:00.356+03:00 DEBUG 22960 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.357+03:00 DEBUG 22960 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.357+03:00 DEBUG 22960 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.358+03:00 DEBUG 22960 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.358+03:00 DEBUG 22960 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.360+03:00 DEBUG 22960 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.360+03:00 DEBUG 22960 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.361+03:00 DEBUG 22960 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.361+03:00 DEBUG 22960 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.361+03:00 DEBUG 22960 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.554+03:00 DEBUG 22960 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:33:00.558+03:00 DEBUG 22960 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.559+03:00 DEBUG 22960 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.560+03:00 DEBUG 22960 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.560+03:00 DEBUG 22960 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.561+03:00 DEBUG 22960 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.561+03:00 DEBUG 22960 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.562+03:00 DEBUG 22960 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.563+03:00 DEBUG 22960 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.563+03:00 DEBUG 22960 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.563+03:00 DEBUG 22960 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.772+03:00 DEBUG 22960 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:33:00.777+03:00 DEBUG 22960 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.778+03:00 DEBUG 22960 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.778+03:00 DEBUG 22960 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.780+03:00 DEBUG 22960 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.781+03:00 DEBUG 22960 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.781+03:00 DEBUG 22960 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.782+03:00 DEBUG 22960 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.782+03:00 DEBUG 22960 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.783+03:00 DEBUG 22960 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.783+03:00 DEBUG 22960 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.985+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:33:00.988+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.990+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.991+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.991+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.992+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.992+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.993+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.993+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.993+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:00.994+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.169+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:33:01.173+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.173+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.174+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.174+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.176+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.176+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.177+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.177+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.177+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.178+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.345+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:33:01.349+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.350+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.351+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.352+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.352+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.353+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.354+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.356+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.356+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.357+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.545+03:00 DEBUG 22960 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:33:01.549+03:00 DEBUG 22960 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.549+03:00 DEBUG 22960 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.550+03:00 DEBUG 22960 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.551+03:00 DEBUG 22960 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.551+03:00 DEBUG 22960 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.551+03:00 DEBUG 22960 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.552+03:00 DEBUG 22960 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.553+03:00 DEBUG 22960 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.554+03:00 DEBUG 22960 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.555+03:00 DEBUG 22960 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.767+03:00 DEBUG 22960 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:33:01.770+03:00 DEBUG 22960 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.773+03:00 DEBUG 22960 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.773+03:00 DEBUG 22960 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.774+03:00 DEBUG 22960 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.774+03:00 DEBUG 22960 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.775+03:00 DEBUG 22960 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.775+03:00 DEBUG 22960 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.776+03:00 DEBUG 22960 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.777+03:00 DEBUG 22960 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.777+03:00 DEBUG 22960 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.947+03:00 DEBUG 22960 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:33:01.951+03:00 DEBUG 22960 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.951+03:00 DEBUG 22960 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.953+03:00 DEBUG 22960 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.954+03:00 DEBUG 22960 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.955+03:00 DEBUG 22960 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.955+03:00 DEBUG 22960 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.956+03:00 DEBUG 22960 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.957+03:00 DEBUG 22960 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.957+03:00 DEBUG 22960 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:01.958+03:00 DEBUG 22960 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.967+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:33:06.967+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:33:06.970+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.971+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.972+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.973+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.973+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.974+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.974+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.975+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.975+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.976+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.976+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.977+03:00 DEBUG 22960 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.977+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.978+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.978+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.979+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.980+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.980+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.982+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.982+03:00 DEBUG 22960 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:06.988+03:00 DEBUG 22960 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        upper(g1_0.title) like upper(?) escape '\'
+2025-11-16T13:33:51.033+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:33:51.040+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:51.041+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:51.041+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:51.042+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:51.043+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:51.043+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:51.043+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:51.045+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:51.045+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:51.046+03:00 DEBUG 22960 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        g1_0.game_id,
+        g1_0.genres 
+    from
+        game_genres g1_0 
+    where
+        g1_0.game_id=?
+2025-11-16T13:33:56.754+03:00 DEBUG 22960 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        upper(g1_0.title) like upper(?) escape '\'
+2025-11-16T13:33:57.175+03:00 DEBUG 22960 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        upper(g1_0.title) like upper(?) escape '\'
+2025-11-16T13:38:52.595+03:00  INFO 22960 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-16T13:38:52.605+03:00  INFO 22960 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-16T13:38:52.610+03:00  INFO 22960 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-16T13:38:52.612+03:00  INFO 22960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-16T13:38:52.614+03:00  INFO 22960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-16T13:42:32.226+03:00  INFO 15596 --- [main] c.e.gamestore.GameStoreApplication       : Starting GameStoreApplication using Java 24.0.2 with PID 15596 (C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store\target\classes started by dexxr in C:\Users\dexxr\OneDrive\Рабочий стол\Курсач\game-store)
+2025-11-16T13:42:32.229+03:00  INFO 15596 --- [main] c.e.gamestore.GameStoreApplication       : The following 1 profile is active: "default"
+2025-11-16T13:42:33.280+03:00  INFO 15596 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-16T13:42:33.400+03:00  INFO 15596 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 103 ms. Found 6 JPA repository interfaces.
+2025-11-16T13:42:34.406+03:00  INFO 15596 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-16T13:42:34.432+03:00  INFO 15596 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-16T13:42:34.432+03:00  INFO 15596 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-11-16T13:42:34.537+03:00  INFO 15596 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-16T13:42:34.537+03:00  INFO 15596 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2243 ms
+2025-11-16T13:42:34.737+03:00  INFO 15596 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-16T13:42:34.836+03:00  INFO 15596 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-11-16T13:42:34.896+03:00  INFO 15596 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-16T13:42:35.362+03:00  INFO 15596 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-16T13:42:35.412+03:00  INFO 15596 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-16T13:42:35.678+03:00  INFO 15596 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7f93f4c
+2025-11-16T13:42:35.681+03:00  INFO 15596 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-16T13:42:35.782+03:00  INFO 15596 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-16T13:42:37.194+03:00  INFO 15596 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-16T13:42:37.262+03:00  INFO 15596 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-16T13:42:38.657+03:00  INFO 15596 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-16T13:42:38.669+03:00  INFO 15596 --- [main] c.e.gamestore.GameStoreApplication       : Started GameStoreApplication in 7.162 seconds (process running for 7.694)
+2025-11-16T13:42:38.874+03:00 DEBUG 15596 --- [main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2025-11-16T13:42:38.913+03:00 DEBUG 15596 --- [main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2025-11-16T13:42:44.016+03:00  INFO 15596 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-16T13:42:44.080+03:00 DEBUG 15596 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:42:56.270+03:00 DEBUG 15596 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:43:34.781+03:00 DEBUG 15596 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        g1_0.id,
+        g1_0.active,
+        g1_0.created_at,
+        g1_0.description,
+        g1_0.developer,
+        g1_0.discount_price,
+        g1_0.image_url,
+        g1_0.platform,
+        g1_0.price,
+        g1_0.publisher,
+        g1_0.release_date,
+        g1_0.title 
+    from
+        games g1_0 
+    where
+        g1_0.active
+2025-11-16T13:43:58.118+03:00  INFO 15596 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-16T13:43:58.127+03:00  INFO 15596 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-16T13:43:58.131+03:00  INFO 15596 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-16T13:43:58.134+03:00  INFO 15596 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-16T13:43:58.135+03:00  INFO 15596 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
