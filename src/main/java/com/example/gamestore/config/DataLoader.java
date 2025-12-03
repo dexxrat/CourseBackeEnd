@@ -107,7 +107,7 @@ public class DataLoader implements CommandLineRunner {
             }
         }
 
-        if (createdCarts > 0) {
+        if (createdCarts > 0){
             System.out.println("Created " + createdCarts + " missing carts for existing users");
         }
     }
