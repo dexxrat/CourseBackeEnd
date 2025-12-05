@@ -48,23 +48,10 @@ public interface CartItemRepository extends JpaRepository<CartItem, Long> {
     @Query("SELECT CASE WHEN COUNT(ci) > 0 THEN true ELSE false END FROM CartItem ci WHERE ci.cart.id = :cartId AND ci.game.id = :gameId")
     boolean existsByCartIdAndGameId(@Param("cartId") Long cartId, @Param("gameId") Long gameId);
 
-    @Query("SELECT COALESCE(SUM(ci.price * ci.quantity), 0) FROM CartItem ci WHERE ci.cart.id = :cartId")
-    Double getCartTotalPrice(@Param("cartId") Long cartId);
-
     @Modifying
     @Transactional
     @Query("UPDATE CartItem ci SET ci.quantity = :quantity WHERE ci.id = :itemId AND ci.cart.id = :cartId")
     int updateQuantity(@Param("cartId") Long cartId, @Param("itemId") Long itemId, @Param("quantity") Integer quantity);
 
-    @Query("SELECT ci FROM CartItem ci WHERE ci.game.id = :gameId")
-    List<CartItem> findByGameId(@Param("gameId") Long gameId);
 
-    @Modifying
-    @Transactional
-    @Query("DELETE FROM CartItem ci WHERE ci.game.active = false")
-    int deleteInactiveGameItems();
-
-    @Query("SELECT ci FROM CartItem ci WHERE ci.cart.id = :cartId AND ci.game.id IN " +
-            "(SELECT ci2.game.id FROM CartItem ci2 WHERE ci2.cart.id = :cartId GROUP BY ci2.game.id HAVING COUNT(ci2) > 1)")
-    List<CartItem> findDuplicateItems(@Param("cartId") Long cartId);
 }

@@ -4,12 +4,14 @@ import com.example.gamestore.dto.CartDTO;
 import com.example.gamestore.service.CartService;
 import com.example.gamestore.util.SecurityUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/cart")
 @RequiredArgsConstructor
+@Slf4j
 public class CartController {
 
     private final CartService cartService;
@@ -17,59 +19,39 @@ public class CartController {
 
     @GetMapping
     public ResponseEntity<CartDTO> getCart() {
-        try {
-            Long userId = securityUtils.getCurrentUserId();
-            CartDTO cart = cartService.getCartByUserId(userId);
-            return ResponseEntity.ok(cart);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+        Long userId = securityUtils.getCurrentUserId();
+        CartDTO cart = cartService.getCartByUserId(userId);
+        return ResponseEntity.ok(cart);
     }
 
     @PostMapping("/items")
     public ResponseEntity<CartDTO> addToCart(@RequestBody AddToCartRequest request) {
-        try {
-            Long userId = securityUtils.getCurrentUserId();
-            CartDTO cart = cartService.addItemToCart(userId, request.getGameId(), request.getQuantity());
-            return ResponseEntity.ok(cart);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+        Long userId = securityUtils.getCurrentUserId();
+        CartDTO cart = cartService.addItemToCart(userId, request.getGameId(), request.getQuantity());
+        return ResponseEntity.ok(cart);
     }
 
     @PutMapping("/items/{itemId}")
     public ResponseEntity<CartDTO> updateCartItem(
             @PathVariable Long itemId,
             @RequestBody UpdateCartItemRequest request) {
-        try {
-            Long userId = securityUtils.getCurrentUserId();
-            CartDTO cart = cartService.updateCartItem(userId, itemId, request.getQuantity());
-            return ResponseEntity.ok(cart);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+        Long userId = securityUtils.getCurrentUserId();
+        CartDTO cart = cartService.updateCartItem(userId, itemId, request.getQuantity());
+        return ResponseEntity.ok(cart);
     }
 
     @DeleteMapping("/items/{itemId}")
     public ResponseEntity<Void> removeCartItem(@PathVariable Long itemId) {
-        try {
-            Long userId = securityUtils.getCurrentUserId();
-            cartService.removeItemFromCart(userId, itemId);
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+        Long userId = securityUtils.getCurrentUserId();
+        cartService.removeItemFromCart(userId, itemId);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping
     public ResponseEntity<Void> clearCart() {
-        try {
-            Long userId = securityUtils.getCurrentUserId();
-            cartService.clearCart(userId);
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+        Long userId = securityUtils.getCurrentUserId();
+        cartService.clearCart(userId);
+        return ResponseEntity.ok().build();
     }
 
     public static class AddToCartRequest {

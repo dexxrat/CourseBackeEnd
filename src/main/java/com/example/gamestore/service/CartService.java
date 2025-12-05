@@ -12,12 +12,12 @@ public interface CartService {
     void removeItemFromCart(Long userId, Long itemId);
     void clearCart(Long userId);
 
-    // Методы проверки состояния корзины
+
     boolean isGameInUserCart(Long userId, Long gameId);
     int getCartItemCount(Long userId);
     BigDecimal getCartTotalPrice(Long userId);
 
-    // Методы для администрирования
+
     void cleanupInactiveGameItems();
     void recalculateAllCartsTotals();
     List<Long> getUsersWithNonEmptyCarts();

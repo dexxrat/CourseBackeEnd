@@ -53,8 +53,13 @@ public class CartItemService {
     }
 
     @Transactional(readOnly = true)
-    public Double getCartTotalPrice(Long cartId) {
-        return cartItemRepository.getCartTotalPrice(cartId);
+    public List<CartItem> findByUserId(Long userId) {
+        return cartItemRepository.findByUserId(userId);
+    }
+
+    @Transactional(readOnly = true)
+    public List<CartItem> findByUserIdWithGames(Long userId) {
+        return cartItemRepository.findByUserIdWithGames(userId);
     }
 
     @Transactional
@@ -87,46 +92,4 @@ public class CartItemService {
         return cartItemRepository.updateQuantity(cartId, itemId, quantity);
     }
 
-    @Transactional(readOnly = true)
-    public List<CartItem> findByUserId(Long userId) {
-        return cartItemRepository.findByUserId(userId);
-    }
-
-    @Transactional(readOnly = true)
-    public List<CartItem> findByUserIdWithGames(Long userId) {
-        return cartItemRepository.findByUserIdWithGames(userId);
-    }
-
-    /**
-     * Очищает корзину от неактивных игр
-     */
-    @Transactional
-    public int cleanupInactiveGameItems() {
-        int deletedCount = cartItemRepository.deleteInactiveGameItems();
-        log.info("Cleaned up {} inactive game items from carts", deletedCount);
-        return deletedCount;
-    }
-
-    /**
-     * Удаляет дубликаты элементов в корзине
-     */
-    @Transactional
-    public int removeDuplicateItems(Long cartId) {
-        List<CartItem> duplicates = cartItemRepository.findDuplicateItems(cartId);
-        if (!duplicates.isEmpty()) {
-            cartItemRepository.deleteAll(duplicates);
-            log.info("Removed {} duplicate items from cart {}", duplicates.size(), cartId);
-            return duplicates.size();
-        }
-        return 0;
-    }
-
-    /**
-     * Проверяет, принадлежит ли элемент корзины пользователю
-     */
-    @Transactional(readOnly = true)
-    public boolean isCartItemOwnedByUser(Long cartItemId, Long userId) {
-        return cartItemRepository.findByUserId(userId).stream()
-                .anyMatch(item -> item.getId().equals(cartItemId));
-    }
 }

@@ -96,17 +96,24 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                        // Публичные эндпоинты
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/games/**").permitAll()
-                        .requestMatchers("/api/games/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/images/**").permitAll()
                         .requestMatchers("/error").permitAll()
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/api/orders/admin/**").hasRole("ADMIN")
+
+                        // Админские эндпоинты (используем @PreAuthorize в контроллерах)
+                        // .requestMatchers("/api/games/admin/**").hasRole("ADMIN")
+                        // .requestMatchers("/api/orders/admin/**").hasRole("ADMIN")
+                        // .requestMatchers("/api/users/**").hasRole("ADMIN")
+
+                        // Пользовательские эндпоинты
                         .requestMatchers("/api/orders/**").authenticated()
                         .requestMatchers("/api/cart/**").authenticated()
-                        .requestMatchers("/api/user/**").authenticated()
+
+                        // Устаревшие пути (если нужны для совместимости)
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())

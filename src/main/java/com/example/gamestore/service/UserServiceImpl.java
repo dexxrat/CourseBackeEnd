@@ -7,8 +7,11 @@ import com.example.gamestore.model.User;
 import com.example.gamestore.repository.CartRepository;
 import com.example.gamestore.repository.RoleRepository;
 import com.example.gamestore.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -18,6 +21,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
@@ -25,148 +30,38 @@ public class UserServiceImpl implements UserService {
     private final CartRepository cartRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository,
-                           CartRepository cartRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
-        this.cartRepository = cartRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
-
     @Override
-    public List<User> findAll() {
-        return userRepository.findAll();
-    }
-
-    @Override
-    public Optional<User> findById(Long id) {
-        return userRepository.findById(id);
-    }
-
-    @Override
-    public Optional<User> findByUsername(String username) {
-        return userRepository.findByUsername(username);
-    }
-
-    @Override
-    public User save(User user) {
-        if (user.getPassword() != null && !user.getPassword().isEmpty()) {
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-        }
-        User savedUser = userRepository.save(user);
-
-        createCartIfNotExists(savedUser);
-
-        return savedUser;
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        userRepository.deleteById(id);
-    }
-
-    @Override
-    public User createUser(String username, String email, String password) {
-        if (userRepository.existsByUsername(username)) {
-            throw new RuntimeException("Username already exists");
-        }
-        if (userRepository.existsByEmail(email)) {
-            throw new RuntimeException("Email already exists");
-        }
-
-        User user = new User();
-        user.setUsername(username);
-        user.setEmail(email);
-        user.setPassword(passwordEncoder.encode(password));
-        user.setActive(true);
-
-        Role userRole = roleRepository.findByName(Role.RoleName.ROLE_USER)
-                .orElseThrow(() -> new RuntimeException("User role not found"));
-        Set<Role> roles = new HashSet<>();
-        roles.add(userRole);
-        user.setRoles(roles);
-
-        User savedUser = userRepository.save(user);
-
-        createCartIfNotExists(savedUser);
-
-        return savedUser;
-    }
-
-    @Override
-    public User updateUser(Long id, User userDetails) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-
-        if (userDetails.getUsername() != null && !userDetails.getUsername().equals(user.getUsername())) {
-            if (userRepository.existsByUsername(userDetails.getUsername())) {
-                throw new RuntimeException("Username already exists");
-            }
-            user.setUsername(userDetails.getUsername());
-        }
-
-        if (userDetails.getEmail() != null && !userDetails.getEmail().equals(user.getEmail())) {
-            if (userRepository.existsByEmail(userDetails.getEmail())) {
-                throw new RuntimeException("Email already exists");
-            }
-            user.setEmail(userDetails.getEmail());
-        }
-
-        if (userDetails.getPassword() != null && !userDetails.getPassword().isEmpty()) {
-            user.setPassword(passwordEncoder.encode(userDetails.getPassword()));
-        }
-
-        if (userDetails.getActive() != null) {
-            user.setActive(userDetails.getActive());
-        }
-
-        User updatedUser = userRepository.save(user);
-
-        createCartIfNotExists(updatedUser);
-
-        return updatedUser;
-    }
-
-    @Override
-    public boolean existsByUsername(String username) {
-        return userRepository.existsByUsername(username);
-    }
-
-    @Override
-    public boolean existsByEmail(String email) {
-        return userRepository.existsByEmail(email);
-    }
-
-    @Override
-    public List<User> findByActiveTrue() {
-        return userRepository.findAll().stream()
-                .filter(user -> Boolean.TRUE.equals(user.isActive()))
-                .collect(Collectors.toList());
-    }
-
-    @Override
+    @Transactional(readOnly = true)
     public List<UserDTO> getAllUsers() {
+        log.info("Getting all users");
         return userRepository.findAll().stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<UserDTO> getUserById(Long id) {
+        log.info("Getting user by id: {}", id);
         return userRepository.findById(id)
                 .map(this::convertToDTO);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<UserDTO> getUserByUsername(String username) {
+        log.info("Getting user by username: {}", username);
         return userRepository.findByUsername(username)
                 .map(this::convertToDTO);
     }
 
     @Override
+    @Transactional
     public UserDTO updateUser(Long id, UserDTO userDTO) {
+        log.info("Updating user with id: {}", id);
+
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
 
         if (userDTO.getUsername() != null && !userDTO.getUsername().equals(user.getUsername())) {
             if (userRepository.existsByUsername(userDTO.getUsername())) {
@@ -201,38 +96,46 @@ public class UserServiceImpl implements UserService {
         }
 
         User updatedUser = userRepository.save(user);
-
         createCartIfNotExists(updatedUser);
 
         return convertToDTO(updatedUser);
     }
 
     @Override
+    @Transactional
     public void deleteUser(Long id) {
+        log.info("Deleting user with id: {}", id);
         if (!userRepository.existsById(id)) {
-            throw new RuntimeException("User not found");
+            throw new RuntimeException("User not found with id: " + id);
         }
         userRepository.deleteById(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
+    }
+
     private void createCartIfNotExists(User user) {
-        try {
-            boolean cartExists = cartRepository.findByUserId(user.getId()).isPresent();
-            if (!cartExists) {
-                Cart cart = new Cart();
-                cart.setUser(user);
-                cart.setTotalPrice(BigDecimal.ZERO);
-                cartRepository.save(cart);
-                System.out.println("Created cart for user: " + user.getUsername());
-            }
-        } catch (Exception e) {
-            System.err.println("Error creating cart for user " + user.getUsername() + ": " + e.getMessage());
+        if (cartRepository.findByUserId(user.getId()).isEmpty()) {
+            Cart cart = new Cart();
+            cart.setUser(user);
+            cart.setTotalPrice(BigDecimal.ZERO);
+            cartRepository.save(cart);
+            log.info("Created cart for user: {}", user.getUsername());
         }
     }
 
     private UserDTO convertToDTO(User user) {
         Set<String> roleNames = user.getRoles().stream()
-                .map(role -> role.getNameAsString())
+                .map(role -> role.getName().name())
                 .collect(Collectors.toSet());
 
         return new UserDTO(

@@ -21,138 +21,95 @@ public class GameServiceImpl implements GameService {
     @Override
     @Transactional(readOnly = true)
     public List<GameDTO> getAllActiveGames() {
-        try {
-            log.info("Getting all active games from database...");
+        log.info("Getting all active games from database...");
 
-            List<Game> games = gameRepository.findByActiveTrue();
-            log.info("Found {} active games in database", games.size());
+        List<Game> games = gameRepository.findByActiveTrue();
+        log.info("Found {} active games in database", games.size());
 
-            return games.stream()
-                    .map(this::convertToDTO)
-                    .collect(Collectors.toList());
-
-        } catch (Exception e) {
-            log.error("Error in getAllActiveGames: {}", e.getMessage(), e);
-            throw new RuntimeException("Failed to load games: " + e.getMessage());
-        }
+        return games.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
     @Transactional(readOnly = true)
     public GameDTO getGameById(Long id) {
-        try {
-            Game game = gameRepository.findByIdAndActiveTrue(id)
-                    .orElseThrow(() -> new RuntimeException("Game not found with id: " + id));
+        Game game = gameRepository.findByIdAndActiveTrue(id)
+                .orElseThrow(() -> new RuntimeException("Game not found with id: " + id));
 
-            return convertToDTO(game);
-        } catch (Exception e) {
-            log.error("Error getting game by id {}: {}", id, e.getMessage());
-            throw new RuntimeException("Failed to load game: " + e.getMessage());
-        }
+        return convertToDTO(game);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<GameDTO> searchGames(String query) {
-        try {
-            List<Game> games = gameRepository.findByTitleContainingIgnoreCaseAndActiveTrue(query);
-            return games.stream()
-                    .map(this::convertToDTO)
-                    .collect(Collectors.toList());
-        } catch (Exception e) {
-            log.error("Error searching games with query '{}': {}", query, e.getMessage());
-            throw new RuntimeException("Failed to search games: " + e.getMessage());
-        }
+        List<Game> games = gameRepository.findByTitleContainingIgnoreCaseAndActiveTrue(query);
+        return games.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<GameDTO> getGamesByGenre(String genre) {
-        try {
-            List<Game> games = gameRepository.findByGenreAndActiveTrue(genre);
-            return games.stream()
-                    .map(this::convertToDTO)
-                    .collect(Collectors.toList());
-        } catch (Exception e) {
-            log.error("Error getting games by genre '{}': {}", genre, e.getMessage());
-            throw new RuntimeException("Failed to load games by genre: " + e.getMessage());
-        }
+        List<Game> games = gameRepository.findByGenreAndActiveTrue(genre);
+        return games.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<GameDTO> getGamesByPlatform(String platform) {
-        try {
-            List<Game> games = gameRepository.findByPlatformAndActiveTrue(platform);
-            return games.stream()
-                    .map(this::convertToDTO)
-                    .collect(Collectors.toList());
-        } catch (Exception e) {
-            log.error("Error getting games by platform '{}': {}", platform, e.getMessage());
-            throw new RuntimeException("Failed to load games by platform: " + e.getMessage());
-        }
+        List<Game> games = gameRepository.findByPlatformAndActiveTrue(platform);
+        return games.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
     @Transactional
     public GameDTO createGame(GameDTO gameDTO) {
-        try {
-            Game game = convertToEntity(gameDTO);
-            game.setActive(true);
-            Game savedGame = gameRepository.save(game);
-            return convertToDTO(savedGame);
-        } catch (Exception e) {
-            log.error("Error creating game: {}", e.getMessage());
-            throw new RuntimeException("Failed to create game: " + e.getMessage());
-        }
+        Game game = convertToEntity(gameDTO);
+        game.setActive(true);
+        Game savedGame = gameRepository.save(game);
+        return convertToDTO(savedGame);
     }
 
     @Override
     @Transactional
     public GameDTO updateGame(Long id, GameDTO gameDTO) {
-        try {
-            Game existingGame = gameRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("Game not found with id: " + id));
+        Game existingGame = gameRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Game not found with id: " + id));
 
-            // Обновляем поля
-            existingGame.setTitle(gameDTO.getTitle());
-            existingGame.setDescription(gameDTO.getDescription());
-            existingGame.setDeveloper(gameDTO.getDeveloper());
-            existingGame.setPublisher(gameDTO.getPublisher());
-            existingGame.setReleaseDate(gameDTO.getReleaseDate());
-            existingGame.setPlatform(gameDTO.getPlatform());
-            existingGame.setPrice(gameDTO.getPrice());
-            existingGame.setDiscountPrice(gameDTO.getDiscountPrice());
-            existingGame.setImageUrl(gameDTO.getImageUrl());
+        existingGame.setTitle(gameDTO.getTitle());
+        existingGame.setDescription(gameDTO.getDescription());
+        existingGame.setDeveloper(gameDTO.getDeveloper());
+        existingGame.setPublisher(gameDTO.getPublisher());
+        existingGame.setReleaseDate(gameDTO.getReleaseDate());
+        existingGame.setPlatform(gameDTO.getPlatform());
+        existingGame.setPrice(gameDTO.getPrice());
+        existingGame.setDiscountPrice(gameDTO.getDiscountPrice());
+        existingGame.setImageUrl(gameDTO.getImageUrl());
 
-            if (gameDTO.getGenres() != null) {
-                existingGame.setGenres(gameDTO.getGenres());
-            }
-
-            Game updatedGame = gameRepository.save(existingGame);
-            return convertToDTO(updatedGame);
-        } catch (Exception e) {
-            log.error("Error updating game {}: {}", id, e.getMessage());
-            throw new RuntimeException("Failed to update game: " + e.getMessage());
+        if (gameDTO.getGenres() != null) {
+            existingGame.setGenres(gameDTO.getGenres());
         }
+
+        Game updatedGame = gameRepository.save(existingGame);
+        return convertToDTO(updatedGame);
     }
 
     @Override
     @Transactional
     public void deleteGame(Long id) {
-        try {
-            Game game = gameRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("Game not found with id: " + id));
-            game.setActive(false);
-            gameRepository.save(game);
-            log.info("Soft deleted game with id: {}", id);
-        } catch (Exception e) {
-            log.error("Error deleting game {}: {}", id, e.getMessage());
-            throw new RuntimeException("Failed to delete game: " + e.getMessage());
-        }
+        Game game = gameRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Game not found with id: " + id));
+        game.setActive(false);
+        gameRepository.save(game);
+        log.info("Soft deleted game with id: {}", id);
     }
 
-    // Вспомогательный метод для конвертации Game в GameDTO
     private GameDTO convertToDTO(Game game) {
         GameDTO dto = new GameDTO();
         dto.setId(game.getId());
@@ -165,10 +122,7 @@ public class GameServiceImpl implements GameService {
         dto.setPrice(game.getPrice());
         dto.setDiscountPrice(game.getDiscountPrice());
         dto.setImageUrl(game.getImageUrl());
-
-        // ИСПРАВЛЕНО: жанры уже загружены благодаря EAGER fetch
         dto.setGenres(game.getGenres());
-
         dto.setFinalPrice(game.getFinalPrice());
         dto.setHasDiscount(game.hasDiscount());
         dto.setDiscountPercentage(game.getDiscountPercentage());
