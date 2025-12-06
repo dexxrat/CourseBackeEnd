@@ -1,7 +1,9 @@
 package com.example.gamestore.service;
 
+import com.example.gamestore.model.Cart;
 import com.example.gamestore.model.CartItem;
 import com.example.gamestore.repository.CartItemRepository;
+import com.example.gamestore.repository.CartRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ import java.util.Optional;
 public class CartItemService {
 
     private final CartItemRepository cartItemRepository;
+    private final CartRepository cartRepository;
 
     @Transactional(readOnly = true)
     public Optional<CartItem> findById(Long id) {
@@ -79,6 +82,10 @@ public class CartItemService {
 
     @Transactional
     public void deleteByCartId(Long cartId) {
+        // TODO New realization
+        // Cart cart = cartRepository.getReferenceById(cartId);
+        // cartItemRepository.deleteByCart(cart);
+
         cartItemRepository.deleteByCartId(cartId);
     }
 
