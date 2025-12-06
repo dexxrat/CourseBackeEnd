@@ -17,8 +17,8 @@ public interface CartItemRepository extends JpaRepository<CartItem, Long> {
     @Modifying
     @Transactional
     @Query("DELETE FROM CartItem ci WHERE ci.cart.id = :cartId")
-    void deleteByCartId(@Param("cartId") Long cartId);
-
+    void deleteByCartId(@Param("cartId") Long cartId); // TODO Dont need query JAP autogenerate it
+    // void deleteByCart(@Param("cardId") Card card) <- here card is reference on card
     @Query("SELECT ci FROM CartItem ci WHERE ci.cart.id = :cartId AND ci.game.id = :gameId")
     Optional<CartItem> findByCartIdAndGameId(@Param("cartId") Long cartId, @Param("gameId") Long gameId);
 

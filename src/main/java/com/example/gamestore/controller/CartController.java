@@ -3,7 +3,9 @@ package com.example.gamestore.controller;
 import com.example.gamestore.dto.CartDTO;
 import com.example.gamestore.service.CartService;
 import com.example.gamestore.util.SecurityUtils;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -54,20 +56,17 @@ public class CartController {
         return ResponseEntity.ok().build();
     }
 
+    // TODO move these classes in dto folder
+    @Getter
+    @Setter
     public static class AddToCartRequest {
         private Long gameId;
         private Integer quantity = 1;
-
-        public Long getGameId() { return gameId; }
-        public void setGameId(Long gameId) { this.gameId = gameId; }
-        public Integer getQuantity() { return quantity; }
-        public void setQuantity(Integer quantity) { this.quantity = quantity; }
     }
 
+    @Getter
+    @Setter
     public static class UpdateCartItemRequest {
         private Integer quantity;
-
-        public Integer getQuantity() { return quantity; }
-        public void setQuantity(Integer quantity) { this.quantity = quantity; }
     }
 }

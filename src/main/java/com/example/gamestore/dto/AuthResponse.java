@@ -17,7 +17,13 @@ public class AuthResponse {
     private String email;
     private List<String> roles;
 
-    public AuthResponse(String token, Long id, String username, String email, List<String> roles) {
+    public AuthResponse(
+            String token,
+            Long id,
+            String username,
+            String email,
+            List<String> roles
+    ) {
         this.token = token;
         this.id = id;
         this.username = username;

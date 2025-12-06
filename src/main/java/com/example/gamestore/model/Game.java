@@ -73,18 +73,4 @@ public class Game {
         return discountAmount.divide(price, 2, BigDecimal.ROUND_HALF_UP)
                 .multiply(new BigDecimal("100"));
     }
-
-    public boolean isActive() {
-        return active != null && active;
-    }
-
-    @PrePersist
-    public void prePersist() {
-        if (createdAt == null) {
-            createdAt = LocalDateTime.now();
-        }
-        if (active == null) {
-            active = true;
-        }
-    }
 }

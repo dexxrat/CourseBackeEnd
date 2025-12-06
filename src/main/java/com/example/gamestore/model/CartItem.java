@@ -28,22 +28,4 @@ public class CartItem {
 
     @Column(name = "price", precision = 10, scale = 2, nullable = false)
     private BigDecimal price;
-
-    @PrePersist
-    @PreUpdate
-    public void prePersist() {
-        if (quantity == null) {
-            quantity = 1;
-        }
-        if (price == null && game != null) {
-            price = game.getPrice();
-        }
-    }
-
-    public BigDecimal getSubtotal() {
-        if (price == null || quantity == null) {
-            return BigDecimal.ZERO;
-        }
-        return price.multiply(BigDecimal.valueOf(quantity));
-    }
 }
