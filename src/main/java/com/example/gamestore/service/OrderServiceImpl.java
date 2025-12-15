@@ -3,9 +3,10 @@ package com.example.gamestore.service;
 import com.example.gamestore.dto.OrderDTO;
 import com.example.gamestore.dto.OrderItemDTO;
 import com.example.gamestore.model.*;
-import com.example.gamestore.repository.*;
+import com.example.gamestore.repository.CartRepository;
+import com.example.gamestore.repository.OrderRepository;
+import com.example.gamestore.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,21 +17,16 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class OrderServiceImpl implements OrderService {
-
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
     private final CartRepository cartRepository;
-    private final CartItemRepository cartItemRepository;
-    private final GameRepository gameRepository;
+    private final CartItemService cartItemService;
 
     @Override
     @Transactional
     public OrderDTO createOrder(Long userId) {
-        log.info("Creating order for user: {}", userId);
-
-        Cart cart = cartRepository.findByUserId(userId)
+        Cart cart = cartRepository.findByUserIdWithItems(userId)
                 .orElseThrow(() -> new RuntimeException("Cart not found for user: " + userId));
 
         if (cart.getItems() == null || cart.getItems().isEmpty()) {
@@ -45,8 +41,7 @@ public class OrderServiceImpl implements OrderService {
         order.setItems(new ArrayList<>());
 
         for (CartItem cartItem : cart.getItems()) {
-            Game game = gameRepository.findById(cartItem.getGame().getId())
-                    .orElseThrow(() -> new RuntimeException("Game not found: " + cartItem.getGame().getId()));
+            Game game = cartItem.getGame();
 
             if (game.getActive() != null && !game.getActive()) {
                 throw new RuntimeException("Game is not available: " + game.getTitle());
@@ -59,19 +54,15 @@ public class OrderServiceImpl implements OrderService {
             orderItem.setPriceAtPurchase(cartItem.getPrice());
 
             order.getItems().add(orderItem);
-            log.info("Added order item: {} x {} at ${}", game.getTitle(), cartItem.getQuantity(), cartItem.getPrice());
         }
 
         order.recalculateTotal();
-        log.info("Order total: ${}", order.getTotalAmount());
-
         Order savedOrder = orderRepository.save(order);
-        log.info("Order created successfully with ID: {}", savedOrder.getId());
 
-        cartItemRepository.deleteByCartId(cart.getId());
+        cartItemService.deleteByCartId(cart.getId());
+        cart.getItems().clear();
         cart.setTotalPrice(BigDecimal.ZERO);
         cartRepository.save(cart);
-        log.info("Cart cleared for user: {}", userId);
 
         return convertToDTO(savedOrder);
     }
@@ -79,21 +70,15 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional(readOnly = true)
     public List<OrderDTO> getUserOrders(Long userId) {
-        log.info("Getting orders for user: {}", userId);
         List<Order> orders = orderRepository.findByUserIdOrderByOrderDateDesc(userId);
-
-        List<OrderDTO> orderDTOs = orders.stream()
+        return orders.stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
-
-        log.info("Found {} orders for user: {}", orderDTOs.size(), userId);
-        return orderDTOs;
     }
 
     @Override
     @Transactional(readOnly = true)
     public OrderDTO getOrder(Long userId, Long orderId) {
-        log.info("Getting order {} for user: {}", orderId, userId);
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("Order not found with id: " + orderId));
 
@@ -107,7 +92,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public OrderDTO updateOrderStatus(Long orderId, String status) {
-        log.info("Updating order {} status to: {}", orderId, status);
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("Order not found with id: " + orderId));
 
@@ -115,7 +99,6 @@ public class OrderServiceImpl implements OrderService {
             Order.OrderStatus newStatus = Order.OrderStatus.valueOf(status.toUpperCase());
             order.setStatus(newStatus);
             Order updatedOrder = orderRepository.save(order);
-            log.info("Order {} status updated to: {}", orderId, newStatus);
             return convertToDTO(updatedOrder);
         } catch (IllegalArgumentException e) {
             throw new RuntimeException("Invalid order status: " + status);
@@ -125,23 +108,19 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional(readOnly = true)
     public List<OrderDTO> getAllOrders() {
-        log.info("Getting all orders");
         List<Order> orders = orderRepository.findAllByOrderByOrderDateDesc();
-
-        List<OrderDTO> orderDTOs = orders.stream()
+        return orders.stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
-
-        log.info("Found {} total orders", orderDTOs.size());
-        return orderDTOs;
     }
 
     private OrderDTO convertToDTO(Order order) {
-        OrderDTO dto = new OrderDTO();
-        dto.setId(order.getId());
-        dto.setOrderDate(order.getOrderDate());
-        dto.setStatus(order.getStatus().name());
-        dto.setTotalAmount(order.getTotalAmount());
+        OrderDTO dto = new OrderDTO(
+                order.getId(),
+                order.getOrderDate(),
+                order.getStatus().name(),
+                order.getTotalAmount()
+        );
 
         if (order.getUser() != null) {
             dto.setUserId(order.getUser().getId());
@@ -154,8 +133,6 @@ public class OrderServiceImpl implements OrderService {
                     .map(this::convertItemToDTO)
                     .collect(Collectors.toList());
             dto.setItems(itemDTOs);
-        } else {
-            dto.setItems(new ArrayList<>());
         }
 
         return dto;

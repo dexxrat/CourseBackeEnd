@@ -8,7 +8,6 @@ import com.example.gamestore.repository.CartRepository;
 import com.example.gamestore.repository.RoleRepository;
 import com.example.gamestore.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,9 +21,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class UserServiceImpl implements UserService {
-
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final CartRepository cartRepository;
@@ -33,7 +30,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public List<UserDTO> getAllUsers() {
-        log.info("Getting all users");
         return userRepository.findAll().stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
@@ -42,7 +38,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public Optional<UserDTO> getUserById(Long id) {
-        log.info("Getting user by id: {}", id);
         return userRepository.findById(id)
                 .map(this::convertToDTO);
     }
@@ -50,7 +45,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public Optional<UserDTO> getUserByUsername(String username) {
-        log.info("Getting user by username: {}", username);
         return userRepository.findByUsername(username)
                 .map(this::convertToDTO);
     }
@@ -58,8 +52,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserDTO updateUser(Long id, UserDTO userDTO) {
-        log.info("Updating user with id: {}", id);
-
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
 
@@ -88,7 +80,8 @@ public class UserServiceImpl implements UserService {
         if (userDTO.getRoles() != null && !userDTO.getRoles().isEmpty()) {
             Set<Role> roles = new HashSet<>();
             for (String roleName : userDTO.getRoles()) {
-                Role role = roleRepository.findByName(convertToRoleName(roleName))
+                Role.RoleName roleEnum = Role.RoleName.valueOf("ROLE_" + roleName.toUpperCase());
+                Role role = roleRepository.findByName(roleEnum)
                         .orElseThrow(() -> new RuntimeException("Role not found: " + roleName));
                 roles.add(role);
             }
@@ -104,7 +97,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void deleteUser(Long id) {
-        log.info("Deleting user with id: {}", id);
         if (!userRepository.existsById(id)) {
             throw new RuntimeException("User not found with id: " + id);
         }
@@ -129,7 +121,6 @@ public class UserServiceImpl implements UserService {
             cart.setUser(user);
             cart.setTotalPrice(BigDecimal.ZERO);
             cartRepository.save(cart);
-            log.info("Created cart for user: {}", user.getUsername());
         }
     }
 
@@ -146,17 +137,5 @@ public class UserServiceImpl implements UserService {
                 user.getActive(),
                 user.getCreatedAt()
         );
-    }
-
-    private Role.RoleName convertToRoleName(String roleName) {
-        try {
-            String normalizedRoleName = roleName.toUpperCase();
-            if (!normalizedRoleName.startsWith("ROLE_")) {
-                normalizedRoleName = "ROLE_" + normalizedRoleName;
-            }
-            return Role.RoleName.valueOf(normalizedRoleName);
-        } catch (IllegalArgumentException e) {
-            throw new RuntimeException("Invalid role name: " + roleName);
-        }
     }
 }
