@@ -1,12 +1,14 @@
 package com.example.gamestore.dto;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
 public class OrderDTO {
     private Long id;
     private LocalDateTime orderDate;
@@ -17,10 +19,6 @@ public class OrderDTO {
     private String userName;
     private String userEmail;
 
-
-    public OrderDTO() {
-    }
-
     public OrderDTO(Long id, LocalDateTime orderDate, String status, BigDecimal totalAmount) {
         this.id = id;
         this.orderDate = orderDate;
@@ -28,22 +26,12 @@ public class OrderDTO {
         this.totalAmount = totalAmount;
     }
 
-
     public void addItem(OrderItemDTO item) {
-        if (this.items == null) {
-            this.items = new ArrayList<>();
-        }
         this.items.add(item);
     }
 
-    public void removeItem(OrderItemDTO item) {
-        if (this.items != null) {
-            this.items.remove(item);
-        }
-    }
-
     public BigDecimal calculateTotalAmount() {
-        if (items == null || items.isEmpty()) {
+        if (items.isEmpty()) {
             return BigDecimal.ZERO;
         }
         return items.stream()
@@ -52,23 +40,10 @@ public class OrderDTO {
     }
 
     public int getTotalItems() {
-        return items != null ? items.size() : 0;
+        return items.size();
     }
 
     public boolean hasItems() {
-        return items != null && !items.isEmpty();
-    }
-
-    @Override
-    public String toString() {
-        return "OrderDTO{" +
-                "id=" + id +
-                ", orderDate=" + orderDate +
-                ", status='" + status + '\'' +
-                ", totalAmount=" + totalAmount +
-                ", itemsCount=" + (items != null ? items.size() : 0) +
-                ", userId=" + userId +
-                ", userName='" + userName + '\'' +
-                '}';
+        return !items.isEmpty();
     }
 }

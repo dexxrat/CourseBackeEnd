@@ -9,11 +9,9 @@ import com.example.gamestore.repository.RoleRepository;
 import com.example.gamestore.repository.UserRepository;
 import com.example.gamestore.security.JwtUtils;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -24,9 +22,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class AuthServiceImpl implements AuthService {
-
     private final AuthenticationManager authenticationManager;
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
@@ -36,8 +32,6 @@ public class AuthServiceImpl implements AuthService {
     @Override
     @Transactional
     public AuthResponse authenticate(AuthRequest request) {
-        log.info("Attempting authentication for user: {}", request.getUsername());
-
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
 
@@ -45,13 +39,11 @@ public class AuthServiceImpl implements AuthService {
         String jwt = jwtUtils.generateJwtToken(authentication);
 
         User user = userRepository.findByUsernameWithRoles(request.getUsername())
-                .orElseThrow(() -> new RuntimeException("User not found after authentication"));
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         List<String> roles = user.getRoles().stream()
                 .map(role -> role.getName().name())
                 .collect(Collectors.toList());
-
-        log.info("User {} successfully authenticated. Roles: {}", user.getUsername(), roles);
 
         return new AuthResponse(jwt, user.getId(), user.getUsername(), user.getEmail(), roles);
     }
@@ -59,8 +51,6 @@ public class AuthServiceImpl implements AuthService {
     @Override
     @Transactional
     public AuthResponse register(RegisterRequest request) {
-        log.info("Attempting registration for user: {}", request.getUsername());
-
         if (usernameExists(request.getUsername())) {
             throw new RuntimeException("Username is already taken");
         }
@@ -76,11 +66,10 @@ public class AuthServiceImpl implements AuthService {
         user.setActive(true);
 
         Role userRole = roleRepository.findByName(Role.RoleName.ROLE_USER)
-                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                .orElseThrow(() -> new RuntimeException("Role USER not found"));
         user.addRole(userRole);
 
         User savedUser = userRepository.save(user);
-        log.info("User registered successfully: {}", savedUser.getUsername());
 
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));

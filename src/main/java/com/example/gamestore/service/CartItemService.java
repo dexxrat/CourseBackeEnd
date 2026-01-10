@@ -1,9 +1,10 @@
 package com.example.gamestore.service;
 
+import com.example.gamestore.model.Cart;
 import com.example.gamestore.model.CartItem;
 import com.example.gamestore.repository.CartItemRepository;
+import com.example.gamestore.repository.CartRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,10 +13,9 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class CartItemService {
-
     private final CartItemRepository cartItemRepository;
+    private final CartRepository cartRepository;
 
     @Transactional(readOnly = true)
     public Optional<CartItem> findById(Long id) {
@@ -52,16 +52,6 @@ public class CartItemService {
         return cartItemRepository.countByCartId(cartId);
     }
 
-    @Transactional(readOnly = true)
-    public List<CartItem> findByUserId(Long userId) {
-        return cartItemRepository.findByUserId(userId);
-    }
-
-    @Transactional(readOnly = true)
-    public List<CartItem> findByUserIdWithGames(Long userId) {
-        return cartItemRepository.findByUserIdWithGames(userId);
-    }
-
     @Transactional
     public CartItem save(CartItem cartItem) {
         return cartItemRepository.save(cartItem);
@@ -86,10 +76,4 @@ public class CartItemService {
     public void deleteByCartIdAndGameId(Long cartId, Long gameId) {
         cartItemRepository.deleteByCartIdAndGameId(cartId, gameId);
     }
-
-    @Transactional
-    public int updateQuantity(Long cartId, Long itemId, Integer quantity) {
-        return cartItemRepository.updateQuantity(cartId, itemId, quantity);
-    }
-
 }
